@@ -1,4 +1,24 @@
 <p>Valor del contador: {{ numero }}</p>
-<ul>
-    <li>{{numero}}</li>
-</ul>
+<!-- <ul>
+    <li>{{numero * 2}}</li>
+</ul> -->
+
+<!-- Property Binding -->
+<button [disabled]="numero >= maximo">Botón</button>
+
+<p [class.rojo]="numero >= maximo">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, sapiente.</p>
+
+<p [class]="{
+    rojo: true,
+    verde: true
+}">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem, error.</p>
+
+<p [style.color]="'dodgerblue'">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, dolore.</p>
+
+<!-- Event Binding -->
+<div>
+    <button (click)="onClick(true)">Incrementar</button>
+    <button (click)="onClick(false)">Decrementar</button>
+</div>
+
+<input type="text" (input)="onInput($event)">
