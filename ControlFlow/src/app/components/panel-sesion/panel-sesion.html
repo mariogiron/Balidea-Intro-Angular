@@ -1,0 +1,12 @@
+<button (click)="onLogIn()">
+  {{ usuario() ? 'LogOut' : 'LogIn' }}
+</button>
+
+@if (usuario(); as sesion) {
+  <p>Hola, {{ sesion.nombre }}. Tu rol es {{ sesion.rol }}</p>
+  @if (sesion.avisos > 3) {
+    <p class="avisos">Tienes más de 3 avisos</p>
+  }
+} @else {
+  <p>No existe usuario activo</p>
+}

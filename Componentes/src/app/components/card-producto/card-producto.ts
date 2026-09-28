@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, Input, input, output } from '@angular/core';
 import { Producto } from '../../interfaces/producto';
 
 @Component({
@@ -9,6 +9,12 @@ import { Producto } from '../../interfaces/producto';
 })
 export class CardProducto {
 
-  producto = input.required<Producto>();
+  readonly producto = input.required<Producto>();
+
+  readonly agregar = output<Producto>();
+
+  onClick() {
+    this.agregar.emit(this.producto());
+  }
 
 }

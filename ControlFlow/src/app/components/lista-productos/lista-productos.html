@@ -1,0 +1,52 @@
+@let prods = productos();
+@let total = prods.reduce((acc, p) => acc + p.precio, 0);
+
+<button (click)="onClick()">Añadir</button>
+<button (click)="onBorrar()">Borrar Productos</button>
+
+<h2>Precio Total : {{ total }}</h2>
+
+<section>
+  @for (producto of prods; track producto.id; let par = $even) {
+    <!-- <div class="producto" [class.filaPar]="$even" [class.filaImpar]="$odd"> -->
+    <div
+      class="producto"
+      [class]="{
+        filaPar: par,
+        filaImpar: !$even,
+      }"
+    >
+      <h3>{{ $index + 1 }} {{ producto.nombre }}</h3>
+      <p>{{ producto.categoria }}</p>
+
+      <!-- SWITCH -->
+      @switch (producto.categoria) {
+        @case ('Periféricos') {
+          <p>🎮</p>
+        }
+        @case ('Pantallas') {
+          <p>🖥️</p>
+        }
+        @case ('Video') {
+          <p>📹</p>
+        }
+        @default {
+          <p>La categoría no existe</p>
+        }
+      }
+      <!-- FIN SWITCH -->
+
+      <ul>
+        <li>Precio: {{ producto.precio }}</li>
+        <li>Stock: {{ producto.stock }}</li>
+        @if ($first) {
+          <li>Primer PRODUCTO</li>
+        }
+      </ul>
+      <p>{{ $first }} / {{ $last }}</p>
+      <p>{{ $even }} / {{ $odd }}</p>
+    </div>
+  } @empty {
+    <p>No hay productos</p>
+  }
+</section>

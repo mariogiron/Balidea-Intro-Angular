@@ -11,9 +11,26 @@
 </div> -->
 <!-- <app-carrito></app-carrito> -->
 
-<card-producto [producto]="{ 
-  nombre: 'Prod1', precio: 23, cantidad: 12
-  }"></card-producto>
-<card-producto [producto]="{ nombre: 'Prod2', precio: 23, cantidad: 12}"></card-producto>
-<card-producto [producto]="{ nombre: 'Prod3', precio: 23, cantidad: 12}"></card-producto>
-<card-producto [producto]="{ nombre: 'Prod4', precio: 23, cantidad: 12}"></card-producto>
+<!-- <card-producto
+  [producto]="{ nombre: 'Prod1', precio: 23, cantidad: 12 }"
+  (agregar)="onAgregar($event)"
+></card-producto>
+<card-producto
+  [producto]="{ nombre: 'Prod2', precio: 23, cantidad: 12 }"
+  (agregar)="onAgregar($event)"
+></card-producto>
+<card-producto
+  [producto]="{ nombre: 'Prod3', precio: 23, cantidad: 12 }"
+  (agregar)="onAgregar($event)"
+></card-producto>-->
+<card-producto
+  [producto]="{ nombre: 'Prod4', precio: 23, cantidad: 12 }"
+  (agregar)="onAgregar($event)"
+></card-producto>
+
+<p>Unidades: {{ unidades() }}</p>
+<app-selector-cantidad [(cantidad)]="unidades"></app-selector-cantidad>
+
+<div>
+  <input type="text" #cajaTexto />
+</div>
