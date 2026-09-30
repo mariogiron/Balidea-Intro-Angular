@@ -1,4 +1,38 @@
 <app-panel-sesion></app-panel-sesion>
-<div>
-  <app-lista-productos></app-lista-productos>
-</div>
+
+<!-- @defer (on interaction) {
+  <div>
+    <app-lista-productos></app-lista-productos>
+  </div>
+} @placeholder {
+  <p>Haz click aquí para ver la lista</p>
+} @loading (minimum 2s) {
+  <p>Cargando el componente...</p>
+} @error {
+  <p>Error en la carga</p>
+} -->
+
+<!-- <button type="button" #boton>Pulsa para ver la lista</button>
+
+@defer (on interaction(boton)) {
+  <div>
+    <app-lista-productos></app-lista-productos>
+  </div>
+} @placeholder {
+  <p>Aquí aparecerán los productos</p>
+} @loading (minimum 2s) {
+  <p>Cargando el componente...</p>
+} @error {
+  <p>Error en la carga</p>
+} -->
+
+@defer (on timer(3s)) {
+  <!-- @defer(when cargaComponente()){ -->
+  <div>
+    <app-lista-productos></app-lista-productos>
+  </div>
+} @placeholder {
+  <p>Aquí aparecerán los productos</p>
+} @error {
+  <p>Error en la carga</p>
+}

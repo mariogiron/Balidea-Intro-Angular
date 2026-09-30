@@ -1,0 +1,9 @@
+@let unidades = carrito.unidades();
+@let total = carrito.total() | currency: 'EUR';
+
+<div>
+  <button (click)="carrito.agregar('lapiz', 4)">Agregar Producto</button>
+</div>
+
+<p>Productos carrito: {{ unidades }}</p>
+<p>Total: {{ total }}</p>

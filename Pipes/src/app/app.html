@@ -1,0 +1,7 @@
+<p>{{ title() | uppercase }}</p>
+<p>Fecha: {{ currentDate() | date: 'dd-LLL-yyyy HH:mm:ss' }}</p>
+<p>Precio: {{ price() | currency }}</p>
+<p>Número: {{ numero() | number: '6.2-4' }}</p>
+<pre>{{ persona() | json }}</pre>
+
+<p>{{ ibanNum() | iban }}</p>
