@@ -1,0 +1,61 @@
+<div>
+  <ul>
+    <li>¿Formulario válido? {{ formulario.valid }}</li>
+    <li>¿Formulario dirty? {{ formulario.dirty }}</li>
+    <li>¿Nombre válido? {{ formulario.controls.nombre.valid }}</li>
+    <li>¿Nombre válido v2? {{ formulario.get('nombre')?.valid }}</li>
+    <li>{{ formulario.controls.nombre.errors | json }}</li>
+  </ul>
+</div>
+
+<form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+  <div class="mb-3">
+    <label class="form-label">Nombre</label>
+    <input
+      type="text"
+      class="form-control"
+      formControlName="nombre"
+      placeholder="Introduce tu nombre completo"
+    />
+    <!-- @if (formulario.controls.nombre.invalid && formulario.controls.nombre.touched) {
+      <p class="error">El nombre es erroneo</p>
+    } -->
+
+    @if (checkError('nombre', 'required')) {
+      <p class="error">El campo nombre es obligatorio</p>
+    }
+    @if (checkError('nombre', 'minlength')) {
+      <p class="error">El campo nombre debe tener longitud mínima de 3 caracteres</p>
+    }
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Apellidos</label>
+    <input type="text" class="form-control" formControlName="apellidos" />
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Edad</label>
+    <input type="number" class="form-control" formControlName="edad" />
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Email</label>
+    <input type="email" class="form-control" formControlName="email" />
+  </div>
+  <div class="mb-3">
+    <label class="form-label">DNI</label>
+    <input type="text" class="form-control" formControlName="dni" />
+    @if (checkError('dni', 'dnivalidator')) {
+      <p class="error">El dni es erroneo</p>
+      <p>{{ formulario.controls.dni.errors | json }}</p>
+    }
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Password</label>
+    <input type="password" class="form-control" formControlName="password" />
+  </div>
+  <input type="submit" value="Enviar" class="btn btn-info" [disabled]="!formulario.valid" />
+</form>
+
+<div>
+  <button (click)="cargaCompleta()">Carga completa</button>
+  <button (click)="cargaParcial()">Carga Parcial</button>
+</div>

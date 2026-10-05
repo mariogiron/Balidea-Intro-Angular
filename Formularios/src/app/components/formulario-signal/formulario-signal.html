@@ -1,0 +1,18 @@
+<form>
+  <div class="mb-3">
+    <label class="form-label">Nombre</label>
+    <input type="text" class="form-control" [formField]="formulario.nombre" />
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Email</label>
+    <input type="text" class="form-control" [formField]="formulario.email" />
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Activo</label>
+    <input type="checkbox" class="form-checkbox" [formField]="formulario.activo" />
+  </div>
+</form>
+
+<pre>
+    {{ contacto() | json }}
+</pre>
