@@ -1,0 +1,27 @@
+<form [formRoot]="formulario">
+  <div class="mb-3">
+    <label class="form-label">Nombre</label>
+    <input type="text" class="form-control" [formField]="formulario.nombre" />
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Apellidos</label>
+    <input type="text" class="form-control" [formField]="formulario.apellidos" />
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Email</label>
+    <input type="text" class="form-control" [formField]="formulario.email" />
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Teléfono</label>
+    <input type="text" class="form-control" [formField]="formulario.telefono" />
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Departamento</label>
+    <input type="text" class="form-control" [formField]="formulario.departamento" />
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Salario</label>
+    <input type="number" class="form-control" [formField]="formulario.salario" />
+  </div>
+  <input type="submit" value="Enviar" />
+</form>

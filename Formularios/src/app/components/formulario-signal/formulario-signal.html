@@ -1,7 +1,12 @@
-<form>
+<form [formRoot]="formulario">
   <div class="mb-3">
     <label class="form-label">Nombre</label>
     <input type="text" class="form-control" [formField]="formulario.nombre" />
+    @if (formulario.nombre().invalid() && formulario.nombre().touched()) {
+      @for (error of formulario.nombre().errors(); track $index) {
+        <p>{{ error.message }}</p>
+      }
+    }
   </div>
   <div class="mb-3">
     <label class="form-label">Email</label>
@@ -11,6 +16,7 @@
     <label class="form-label">Activo</label>
     <input type="checkbox" class="form-checkbox" [formField]="formulario.activo" />
   </div>
+  <input type="submit" value="Enviar" />
 </form>
 
 <pre>

@@ -1,0 +1,22 @@
+<h2>Lista de empleados</h2>
+
+<div>
+  <p>Estado: {{ empleados.status() }}</p>
+  <p>IsLoading: {{ empleados.isLoading() }}</p>
+  <p>hasValue: {{ empleados.hasValue() }}</p>
+</div>
+
+@if (empleados.isLoading()) {
+  <p>Cargando la lista de empleados...</p>
+}
+
+@if (empleados.error()) {
+  <p>Error en la carga de los empleados</p>
+} @else if (empleados.hasValue()) {
+  @for (emp of empleados.value(); track emp._id) {
+    <div>
+      <p>Nombre: {{ emp.nombre }} {{ emp.apellidos }}</p>
+      <button [routerLink]="['/empleados', emp._id]">Ver detalle</button>
+    </div>
+  }
+}

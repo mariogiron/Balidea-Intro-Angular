@@ -1,0 +1,14 @@
+<p>Detalle Empleado: {{ idEmpleado() }}</p>
+
+@if (empleado.isLoading()) {
+  <p>Cargando el empleado...</p>
+}
+
+@if (empleado.error()) {
+  <p>Ha ocurrido un error</p>
+} @else if (empleado.hasValue()) {
+  @let emp = empleado.value();
+
+  <h3>{{ emp.nombre }} {{ emp.apellidos }}</h3>
+  <p>{{ emp.departamento }}</p>
+}
